@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darshil Shah | Embedded Software Engineer</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121922;
+      --panel-2: #18212c;
+      --text: #edf2f7;
+      --muted: #a7b3c2;
+      --accent: #4fd1c5;
+      --accent-2: #63b3ed;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 16px 40px rgba(0,0,0,0.35);
+      --maxw: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(79, 209, 197, 0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(99, 179, 237, 0.10), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--maxw), calc(100% - 2rem)); margin: 0 auto; }
+    .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(12px); background: rgba(11, 15, 20, 0.75); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; gap: 1rem; }
+    .brand { font-weight: 800; letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--text); }
+    .hero { padding: 4.5rem 0 3rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 1.5rem; align-items: stretch; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); }
+    .hero-card { padding: 2rem; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.75rem; }
+    h1, h2, h3 { margin: 0 0 0.75rem; line-height: 1.15; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4.25rem); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    h3 { font-size: 1.15rem; }
+    .lead { font-size: 1.1rem; color: var(--muted); max-width: 60ch; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
+    .pill { padding: 0.7rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); font-size: 0.95rem; color: #d9e2ec; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.9rem 1.2rem; border-radius: 14px; font-weight: 700; border: 1px solid transparent; transition: transform 0.18s ease, opacity 0.18s ease, border-color 0.18s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #061018; }
+    .btn-secondary { background: rgba(255,255,255,0.03); border-color: var(--border); color: var(--text); }
+    .summary-card { padding: 2rem; display: grid; gap: 1rem; align-content: start; }
+    .stat { padding: 1rem 1.1rem; background: var(--panel); border-radius: 18px; border: 1px solid var(--border); }
+    .stat strong { display: block; font-size: 1.6rem; margin-bottom: 0.2rem; }
+    .section { padding: 1.5rem 0 0.5rem; }
+    .section-header { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
+    .muted { color: var(--muted); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .tile { padding: 1.25rem; background: var(--panel); border: 1px solid var(--border); border-radius: 20px; }
+    ul.clean { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
+    ul.clean li { color: #d7e0ea; padding-left: 1rem; position: relative; }
+    ul.clean li::before { content: ""; position: absolute; left: 0; top: 0.7rem; width: 6px; height: 6px; border-radius: 999px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+    .project { padding: 1.4rem; background: linear-gradient(180deg, var(--panel), var(--panel-2)); border: 1px solid var(--border); border-radius: 22px; display: grid; gap: 0.85rem; }
+    .project .tag { display: inline-block; font-size: 0.8rem; color: var(--accent); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .project p, .tile p { margin: 0; color: var(--muted); }
+    .project-links { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.2rem; font-weight: 700; }
+    .timeline { display: grid; gap: 1rem; }
+    .timeline-item { padding: 1.3rem; border-radius: 20px; background: var(--panel); border: 1px solid var(--border); }
+    .timeline-item header { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.7rem; }
+    .footer { padding: 3rem 0 4rem; }
+    .footer-card { padding: 1.8rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .hero { padding-top: 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">DARSHIL SHAH</a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="eyebrow">Embedded Software Engineer</div>
+          <h1>Real-time systems, embedded firmware, and industrial communications.</h1>
+          <p class="lead">I build reliable embedded software for automotive, industrial, and IoT systems with a focus on deterministic performance, firmware integration, and scalable development workflows.</p>
+          <div class="pill-row">
+            <span class="pill">Embedded C/C++</span><span class="pill">FreeRTOS</span><span class="pill">CAN / J1939</span><span class="pill">Python Automation</span><span class="pill">MATLAB / Simulink</span><span class="pill">CI/CD</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="Darshil_Shah_Portfolio.pdf" target="_blank" rel="noopener">View Portfolio PDF</a>
+            <a class="btn btn-secondary" href="https://github.com/darshilshah3008" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/darshilshah3008/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <aside class="card summary-card">
+          <div class="stat"><strong>6+ years</strong><span class="muted">Embedded software experience across automotive, agricultural, and industrial IoT systems.</span></div>
+          <div class="stat"><strong>30–40%</strong><span class="muted">Measured improvements in stability, release time, and integration efficiency from shipped work.</span></div>
+          <div class="stat"><strong>ARM Cortex-M</strong><span class="muted">Hands-on work with STM32, TI Tiva, Renesas, Apollo3, and Raspberry Pi platforms.</span></div>
+        </aside>
+      </div>
+    </section>
+    <section id="about" class="section container">
+      <div class="section-header"><div><div class="eyebrow">About</div><h2>Engineer focused on dependable embedded platforms</h2></div></div>
+      <div class="grid-2">
+        <div class="tile"><p>Based in Manitowoc, Wisconsin, I specialize in real-time embedded systems, control software, and communications stacks for connected products. My background spans firmware design, debugging, system integration, and automation for development and release workflows.</p></div>
+        <div class="tile"><p>I am especially interested in roles where embedded software meets vehicle systems, industrial automation, diagnostics, and reliable communication networks.</p></div>
+      </div>
+    </section>
+    <section id="skills" class="section container">
+      <div class="section-header"><div><div class="eyebrow">Core Strengths</div><h2>Technical skills</h2></div></div>
+      <div class="grid-3">
+        <div class="tile"><h3>Firmware & Platforms</h3><ul class="clean"><li>Embedded C, C++, Python, C#, MATLAB, Bash</li><li>STM32, TI Tiva, ARM Cortex-M, Renesas, Apollo3, Raspberry Pi</li><li>FreeRTOS, Embedded Linux, custom RTOS development</li></ul></div>
+        <div class="tile"><h3>Communications & Integration</h3><ul class="clean"><li>CAN, J1939, SPI, I2C, UART, Ethernet, UDP, BLE</li><li>Firmware and GUI integration using C#/.NET</li><li>Control software and model-based development</li></ul></div>
+        <div class="tile"><h3>Validation & Delivery</h3><ul class="clean"><li>Git, GitLab, Jenkins, Docker, SVN</li><li>CANalyzer, Wireshark, JTAG, logic analyzer</li><li>CI/CD automation and workflow optimization</li></ul></div>
+      </div>
+    </section>
+    <section id="projects" class="section container">
+      <div class="section-header"><div><div class="eyebrow">Selected Work</div><h2>Project highlights</h2></div></div>
+      <div class="grid-3">
+        <article class="project"><span class="tag">RTOS</span><h3>Custom Preemptive RTOS</h3><p>Built a lightweight RTOS for deterministic execution on ARM Cortex-M4 with SysTick/PendSV scheduling, task APIs, semaphores, mutexes, and UART CLI debugging.</p><p><strong>Outcome:</strong> &lt;10µs context switch latency with stable multitasking across 6 tasks.</p><div class="project-links"><a href="https://github.com/darshilshah3008/academic-custom-rtos-cortexm4" target="_blank" rel="noopener">View Repository</a></div></article>
+        <article class="project"><span class="tag">Diagnostics + ML</span><h3>CAN J1939 Fault Prediction</h3><p>Built a preprocessing and predictive classification pipeline for DM1 CAN diagnostic frames using Python and machine learning.</p><p><strong>Outcome:</strong> 99% prediction accuracy for fault classification.</p></article>
+        <article class="project"><span class="tag">Sensing</span><h3>SONAR Object Localization</h3><p>Implemented time-of-flight processing, triangulation logic, and UART-based CLI calibration for real-time localization using ultrasonic sensors.</p><p><strong>Outcome:</strong> Sub-centimeter localization accuracy (±5 mm).</p><div class="project-links"><a href="https://github.com/darshilshah3008/academic-ultrasonic-object-tracking" target="_blank" rel="noopener">View Repository</a></div></article>
+        <article class="project"><span class="tag">Automation</span><h3>AI Email Workflow Automation</h3><p>Created an n8n workflow integrated with Google Sheets and Gemini for sequential email drafting and status-based execution.</p><p><strong>Outcome:</strong> Scalable productivity automation for repeated communication tasks.</p><div class="project-links"><a href="https://github.com/darshilshah3008/n8n-gemini-google-sheets-email-drafter" target="_blank" rel="noopener">View Repository</a></div></article>
+        <article class="project"><span class="tag">Communications</span><h3>Peer-to-Peer CSMA Protocol</h3><p>Designed a low-latency embedded communication protocol for reliable peer-to-peer data exchange.</p><div class="project-links"><a href="https://github.com/darshilshah3008/academic-rs485-p2p-csma" target="_blank" rel="noopener">View Repository</a></div></article>
+        <article class="project"><span class="tag">Control Interface</span><h3>UDP to SPI CNC Bridge</h3><p>Developed a network interface enabling real-time CNC control through a UDP-to-SPI bridge architecture.</p><div class="project-links"><a href="https://github.com/darshilshah3008/academic-udp-spi-cnc-controller" target="_blank" rel="noopener">View Repository</a></div></article>
+      </div>
+    </section>
+    <section id="experience" class="section container">
+      <div class="section-header"><div><div class="eyebrow">Experience</div><h2>Professional impact</h2></div></div>
+      <div class="timeline">
+        <div class="timeline-item"><header><div><h3>CNH Industrial — Embedded Software Engineer</h3><div class="muted">Sprayers platform</div></div></header><ul class="clean"><li>Developed suspension and axle control software that improved vehicle stability by 30%.</li><li>Automated build and deployment using Python and GitLab CI/CD, reducing release time by 40%.</li><li>Led SVN to Git migration to improve collaboration and reduce merge conflicts by 50%.</li><li>Integrated embedded firmware with C# GUI tools, reducing latency by 25%.</li><li>Implemented MATLAB/Simulink code generation, reducing integration issues by 40%.</li><li>Resolved 100+ issues in Polarion and SharePoint, contributing to a 30% reduction in field failures.</li></ul></div>
+        <div class="timeline-item"><header><div><h3>The Coats Company — Embedded Software Intern</h3></div></header><ul class="clean"><li>Built an SPI interface between FreeRTOS and the AMT203 encoder.</li><li>Implemented stepper motor stall detection to improve safety diagnostics.</li><li>Developed TI to Renesas inter-MCU communication protocol.</li></ul></div>
+        <div class="timeline-item"><header><div><h3>Sloan Valve Company — R&amp;D Embedded Software Intern</h3></div></header><ul class="clean"><li>Developed a BLE-based OTA firmware upgrade workflow.</li><li>Performed PCB bring-up, validation, and failure analysis.</li></ul></div>
+      </div>
+    </section>
+    <section class="section container">
+      <div class="section-header"><div><div class="eyebrow">Education</div><h2>Academic background</h2></div></div>
+      <div class="grid-2">
+        <div class="tile"><h3>M.S. Electrical &amp; Computer Engineering</h3><p>University of Texas at Arlington — GPA: 3.9</p></div>
+        <div class="tile"><h3>B.E. Instrumentation &amp; Control Engineering</h3><p>L.D. College of Engineering — GPA: 3.4</p></div>
+      </div>
+    </section>
+  </main>
+  <footer id="contact" class="footer container">
+    <div class="card footer-card">
+      <div><div class="eyebrow">Contact</div><h2>Let’s connect</h2><div class="muted">Manitowoc, WI, USA · darshilshah3008@gmail.com · +1 (682) 559-3820</div></div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:darshilshah3008@gmail.com">Email Me</a>
+        <a class="btn btn-secondary" href="https://github.com/darshilshah3008" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/darshilshah3008/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
